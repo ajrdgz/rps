@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
 </head>
+
 <body>
 
     <script>
 
-        let choices = ["Rock", "Paper", "Scissors"];
+        let choices = ["rock", "paper", "scissors"];
+        let result;
 
         function getComputerChoice(choices) {
             return choices[Math.floor(Math.random() * choices.length)];
@@ -20,10 +23,37 @@
 
         console.log(computerSelection);
 
+        let playerSelection = prompt("Rock, paper, or scissors?");
+        playerSelection = playerSelection.toLowerCase();
+        console.log(playerSelection);
+
+        function playRound(computerSelection, playerSelection) {
+            if (computerSelection === playerSelection) {
+                alert("Tie");
+            } else if (
+                (computerSelection === "rock" && playerSelection === "scissors") ||
+                (computerSelection === "paper" && playerSelection === "rock") ||
+                (computerSelection === "scissors" && playerSelection === "paper")
+            ) {
+                result = computerSelection + " beats " + playerSelection + "! You lose!";
+                alert(result);
+            } else {
+                result = playerSelection.toUpperCase() + " beats " + computerSelection + "! You win!";
+                alert(result);
+            }
+        }
+
+        playRound(computerSelection, playerSelection);
+
+
+
+
+
 
 
 
     </script>
-    
+
 </body>
+
 </html>
