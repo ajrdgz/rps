@@ -14,18 +14,19 @@
 
         let choices = ["rock", "paper", "scissors"];
         let result;
+        let computerScore = 0;
+        let playerScore = 0;
+        let computerSelection;
+        let playerSelection;
 
         function getComputerChoice(choices) {
             return choices[Math.floor(Math.random() * choices.length)];
         }
 
-        const computerSelection = getComputerChoice(choices);
-
-        console.log(computerSelection);
-
-        let playerSelection = prompt("Rock, paper, or scissors?");
-        playerSelection = playerSelection.toLowerCase();
-        console.log(playerSelection);
+        function getPlayerChoice() {
+            playerSelection = prompt("Rock, paper, or scissors?");
+            playerSelection = playerSelection.toLowerCase();
+        }
 
         function playRound(computerSelection, playerSelection) {
             if (computerSelection === playerSelection) {
@@ -37,15 +38,40 @@
             ) {
                 result = computerSelection + " beats " + playerSelection + "! You lose!";
                 alert(result);
+                computerScore++;
             } else {
-                result = playerSelection.toUpperCase() + " beats " + computerSelection + "! You win!";
+                result = playerSelection + " beats " + computerSelection + "! You win!";
                 alert(result);
+                playerScore++;
             }
         }
 
-        playRound(computerSelection, playerSelection);
+        function game() {
+            computerSelection = getComputerChoice(choices);
+            console.log(computerSelection);
+            getPlayerChoice();
+            console.log(playerSelection);
+            playRound(computerSelection, playerSelection);
 
+        }
 
+        game();
+        game();
+        game();
+        game();
+        game();
+
+        let msg = ("Player: " + playerScore + " Computer: " + computerScore);
+
+        if (playerScore === computerScore) {
+            msg = msg + " Tie Game.";
+        } else if (playerScore > computerScore) {
+            msg = msg + " You Win!";
+        } else {
+            msg = msg + " You Lose.";
+        }
+
+        alert(msg);
 
 
 
