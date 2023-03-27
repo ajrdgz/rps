@@ -59,14 +59,11 @@
             getPlayerChoice();
             console.log(playerSelection);
             playRound(computerSelection, playerSelection);
-
         }
 
-        game();
-        game();
-        game();
-        game();
-        game();
+        for (let i = 0; i < 5; i++) {
+            game();
+        }
 
         let msg = ("Player: " + playerScore + "   Computer: " + computerScore);
 
@@ -79,11 +76,6 @@
         }
 
         alert(msg);
-
-
-
-
-
 
     </script>
 
