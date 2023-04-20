@@ -1,0 +1,62 @@
+body {
+    color: darkgray;
+    background-color: #303030;
+}
+
+#header {
+    font-size: 72px;
+    font-weight: bold;
+    margin-bottom: 72px;
+}
+
+.button {
+    width: 150px;
+    height: 150px;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 16px;
+    color: white;
+    background-color: #555555;
+    border-width: 5px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 72px;
+    gap: 36px;
+}
+
+#container {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 48px;
+}
+
+#scores {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+}
+
+#winLose {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+#scores, #battles {
+    font-size: 48px;
+    margin: 16px;
+    font-weight: bold;
+}
+
+
+div {
+    text-align: center;
+}
+
+#container {
+    text-transform: capitalize;
+}

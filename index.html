@@ -6,79 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div id="header">
+        Rock Paper Scissors
+    </div>
 
-    <script>
+    <div class="buttons">
+        <button id="rock" class = "button">Rock</button>
+        <button id="paper" class = "button">Paper</button>
+        <button id="scissors" class = "button">Scissors</button>
+    </div>
 
-        let choices = ["rock", "paper", "scissors"];
-        let result;
-        let computerScore = 0;
-        let playerScore = 0;
-        let computerSelection;
-        let playerSelection;
+    <div>
+        <div id="winLose">Pick one</div>
+    </div>
 
-        function getComputerChoice(choices) {
-            return choices[Math.floor(Math.random() * choices.length)];
-        }
+    <div>
+        <div id="container"></div>
+    </div>
 
-        function getPlayerChoice() {
-            playerSelection = prompt("Rock, paper, or scissors?");
-            playerSelection = playerSelection.toLowerCase();
-            if (playerSelection === "rock" ||
-                playerSelection === "paper" ||
-                playerSelection === "scissors") {
-            } else {
-                alert("Invalid choice");
-                getPlayerChoice();
-            }
-        }
+    <div id="scores">
+        <div id = "playerScore"></div>
+        <div id = "computerScore"></div>
+    </div>
 
-        function playRound(computerSelection, playerSelection) {
-            if (computerSelection === playerSelection) {
-                alert("Tie");
-            } else if (
-                (computerSelection === "rock" && playerSelection === "scissors") ||
-                (computerSelection === "paper" && playerSelection === "rock") ||
-                (computerSelection === "scissors" && playerSelection === "paper")
-            ) {
-                result = computerSelection + " beats " + playerSelection + "! You lose!";
-                alert(result);
-                computerScore++;
-            } else {
-                result = playerSelection + " beats " + computerSelection + "! You win!";
-                alert(result);
-                playerScore++;
-            }
-        }
-
-        function game() {
-            computerSelection = getComputerChoice(choices);
-            console.log(computerSelection);
-            getPlayerChoice();
-            console.log(playerSelection);
-            playRound(computerSelection, playerSelection);
-        }
-
-        for (let i = 0; i < 5; i++) {
-            game();
-        }
-
-        let msg = ("Player: " + playerScore + "   Computer: " + computerScore);
-
-        if (playerScore === computerScore) {
-            msg = msg + "   Tie Game.";
-        } else if (playerScore > computerScore) {
-            msg = msg + "   You Win!";
-        } else {
-            msg = msg + "   You Lose.";
-        }
-
-        alert(msg);
-
-    </script>
-
+    <div>
+        <div id="battles"></div>
+    </div>
 </body>
 
 </html>
