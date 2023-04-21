@@ -30,14 +30,18 @@ function getComputerChoice(choices) {
 function playRound(computerSelection, playerSelection) {
   if (computerSelection === playerSelection) {
     result = "Tie."
-  } else if (
+  }
+
+  else if (
     (computerSelection === "rock" && playerSelection === "scissors") ||
     (computerSelection === "paper" && playerSelection === "rock") ||
     (computerSelection === "scissors" && playerSelection === "paper")
   ) {
     result = computerSelection + " beats " + playerSelection + "! You lose!";
     computerScore++;
-  } else {
+  }
+
+  else {
     result = playerSelection + " beats " + computerSelection + "! You win!";
     playerScore++;
   }
@@ -68,13 +72,17 @@ function check() {
     computerScore = 0;
     playerScore = 0;
     battles = 0;
+  }
 
-  } else if (computerScore === 5) {
+  else if (computerScore === 5) {
     msg = "You Lose!";
     computerScore = 0;
     playerScore = 0;
     battles = 0;
-  } else {
+
+  }
+
+  else {
     msg = "Pick one";
   }
 
