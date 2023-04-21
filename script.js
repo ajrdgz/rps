@@ -6,12 +6,10 @@ let battles = 0;
 let computerSelection;
 let playerSelection;
 
-
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
-
-  button.addEventListener('click', () => {
+  button.addEventListener("click", () => {
     playerSelection = button.id;
     computerSelection = getComputerChoice(choices);
 
@@ -21,50 +19,41 @@ buttons.forEach((button) => {
   });
 });
 
-
 function getComputerChoice(choices) {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-
 function playRound(computerSelection, playerSelection) {
   if (computerSelection === playerSelection) {
-    result = "Tie."
-  }
-
-  else if (
+    result = "Tie.";
+  } else if (
     (computerSelection === "rock" && playerSelection === "scissors") ||
     (computerSelection === "paper" && playerSelection === "rock") ||
     (computerSelection === "scissors" && playerSelection === "paper")
   ) {
     result = computerSelection + " beats " + playerSelection + "! You lose!";
     computerScore++;
-  }
-
-  else {
+  } else {
     result = playerSelection + " beats " + computerSelection + "! You win!";
     playerScore++;
   }
 
   battles++;
 
-  const round = document.querySelector('#container');
+  const round = document.querySelector("#container");
   round.innerHTML = result;
 
-  const cScore = document.querySelector('#computerScore');
+  const cScore = document.querySelector("#computerScore");
   cScore.innerHTML = "Computer: " + computerScore;
 
-  const pScore = document.querySelector('#playerScore');
+  const pScore = document.querySelector("#playerScore");
   pScore.innerHTML = "You: " + playerScore;
 
-  const battleNum = document.querySelector('#battles');
+  const battleNum = document.querySelector("#battles");
   battleNum.innerHTML = "Battles: " + battles;
-
 }
 
-
 function check() {
-
   let msg = " ";
 
   if (playerScore === 5) {
@@ -72,22 +61,15 @@ function check() {
     computerScore = 0;
     playerScore = 0;
     battles = 0;
-  }
-
-  else if (computerScore === 5) {
+  } else if (computerScore === 5) {
     msg = "You Lose!";
     computerScore = 0;
     playerScore = 0;
     battles = 0;
-
-  }
-
-  else {
+  } else {
     msg = "Pick one";
   }
 
-  const winLose = document.querySelector('#winLose');
+  const winLose = document.querySelector("#winLose");
   winLose.innerHTML = msg;
-
-};
-
+}
